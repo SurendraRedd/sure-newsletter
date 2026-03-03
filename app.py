@@ -4,6 +4,7 @@ from datetime import datetime
 from streamlit_extras.metric_cards import style_metric_cards
 import supabase_db as database
 from email_service import send_welcome_email
+from config import ADMIN_PASSWORD
 
 st.set_page_config(
     page_title="SuRe Newsletter",
@@ -177,7 +178,7 @@ st.sidebar.markdown("---")
 with st.sidebar.expander("🔑 Admin Access", expanded=False):
     admin_pw = st.text_input("Enter admin password", type="password", key="admin_login")
     if admin_pw:
-        if admin_pw == "sure2026":
+        if admin_pw == ADMIN_PASSWORD:
             st.session_state.is_admin = True
             st.success("✅ Admin access granted!")
             st.rerun()
