@@ -19,25 +19,19 @@ SUPABASE_URL = "https://your-project.supabase.co"
 SUPABASE_KEY = "your_anon_public_key"
 ```
 
-### Admin Configuration
-```
-ADMIN_PASSWORD = "your_secure_password"
-```
-
 ---
 
 ## 📋 Complete Secrets List
 
-| Secret Key | Value | Where to Get | Required? | Default |
-|-----------|-------|-------------|-----------|---------|
-| `SENDER_EMAIL` | Gmail address | Your Gmail account | ✅ Yes | — |
-| `SENDER_PASSWORD` | Gmail app password | [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords) | ✅ Yes | — |
-| `SENDER_NAME` | Display name | Any name (e.g., "SuRe Newsletter") | ✅ Yes | "SuRe Newsletter" |
-| `SMTP_SERVER` | SMTP server address | `smtp.gmail.com` (or provider) | ✅ Yes | "smtp.gmail.com" |
-| `SMTP_PORT` | Port number | `587` (or provider's port) | ✅ Yes | 587 |
-| `SUPABASE_URL` | Supabase project URL | Supabase dashboard > Settings > API | ✅ Yes | — |
-| `SUPABASE_KEY` | Supabase anon key | Supabase dashboard > Settings > API | ✅ Yes | — |
-| `ADMIN_PASSWORD` | Admin login password | Your choice | ✅ Yes | — |
+| Secret Key | Value | Where to Get | Required? |
+|-----------|-------|-------------|-----------|
+| `SENDER_EMAIL` | Gmail address | Your Gmail account | ✅ Yes |
+| `SENDER_PASSWORD` | Gmail app password | [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords) | ✅ Yes |
+| `SENDER_NAME` | Display name | Any name (e.g., "SuRe Newsletter") | ✅ Yes |
+| `SMTP_SERVER` | SMTP server address | `smtp.gmail.com` (or provider) | ✅ Yes |
+| `SMTP_PORT` | Port number | `587` (or provider's port) | ✅ Yes |
+| `SUPABASE_URL` | Supabase project URL | Supabase dashboard > Settings > API | ✅ Yes |
+| `SUPABASE_KEY` | Supabase anon key | Supabase dashboard > Settings > API | ✅ Yes |
 
 ---
 
@@ -59,12 +53,7 @@ ADMIN_PASSWORD = "your_secure_password"
    - **Project URL** → `SUPABASE_URL`
    - **Anon public** (the long key) → `SUPABASE_KEY`
 
-### 3. Admin Password
-Choose a **strong, unique password** for admin access and set as `ADMIN_PASSWORD`. 
-
-This is now **required** — there is no default password.
-
-### 4. Add to Streamlit Cloud
+### 3. Add to Streamlit Cloud
 1. Go to your deployed app at [share.streamlit.io](https://share.streamlit.io)
 2. Click your app name
 3. Click **Settings** (gear icon) → **Secrets**
@@ -77,7 +66,6 @@ This is now **required** — there is no default password.
    SMTP_PORT = 587
    SUPABASE_URL = "https://your-project.supabase.co"
    SUPABASE_KEY = "your_anon_key"
-   ADMIN_PASSWORD = "your_secure_password"
    ```
 5. Click **Save**
 
@@ -130,5 +118,5 @@ SMTP_PORT = 587
 - ✅ **Do NOT** use app passwords for multiple apps — use unique ones
 - ✅ Use **Streamlit Secrets** ONLY for cloud, not `.env` files in production
 - ✅ Rotate email app passwords every 6 months
-- ✅ Change `ADMIN_PASSWORD` from default immediately in production
 - ✅ Monitor Supabase resource usage (storage, API calls)
+- ✅ **Manage content via Supabase dashboard** or `seed_issues.py` script

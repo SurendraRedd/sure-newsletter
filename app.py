@@ -4,7 +4,6 @@ from datetime import datetime
 from streamlit_extras.metric_cards import style_metric_cards
 import supabase_db as database
 from email_service import send_welcome_email
-from config import ADMIN_PASSWORD
 
 st.set_page_config(
     page_title="SuRe Newsletter",
@@ -150,8 +149,6 @@ if "subscribers" not in st.session_state:
     st.session_state.subscribers = []
 if "issues" not in st.session_state:
     st.session_state.issues = []
-if "is_admin" not in st.session_state:
-    st.session_state.is_admin = False
 
 # Initialize database
 database.init_database()
@@ -166,29 +163,8 @@ if not st.session_state.issues:
 # ====================== SIDEBAR ======================
 st.sidebar.title("📧 SuRe")
 
-# Build navigation options based on admin status
 nav_options = ["🏠 Home", "📬 Latest Issue", "📚 Archive", "✉️ Subscribe"]
-if st.session_state.is_admin:
-    nav_options.append("🔐 Admin")
-
 page = st.sidebar.radio("Navigation", nav_options)
-
-# Admin Login Section (hidden but always accessible)
-st.sidebar.markdown("---")
-with st.sidebar.expander("🔑 Admin Access", expanded=False):
-    admin_pw = st.text_input("Enter admin password", type="password", key="admin_login")
-    if admin_pw:
-        if admin_pw == ADMIN_PASSWORD:
-            st.session_state.is_admin = True
-            st.success("✅ Admin access granted!")
-            st.rerun()
-        else:
-            st.error("❌ Invalid password")
-    
-    if st.session_state.is_admin:
-        if st.button("🚪 Logout Admin", key="admin_logout"):
-            st.session_state.is_admin = False
-            st.rerun()
 
 # ====================== PAGES ======================
 if page == "🏠 Home":
@@ -334,49 +310,3 @@ elif page == "✉️ Subscribe":
                     st.info("You are already subscribed.")
             else:
                 st.error("Please enter a valid email address.")
-
-elif page == "🔐 Admin":
-    if st.session_state.is_admin:
-        st.title("🔐 Admin Dashboard")
-        st.success("You are logged in as administrator")
-        
-        tab1, tab2 = st.tabs(["Compose New Issue", "Manage Subscribers"])
-        
-        with tab1:
-            st.subheader("Create New Newsletter Issue")
-            title = st.text_input("Issue Title", f"SuRe #{len(st.session_state.issues)+1} — {datetime.now().strftime('%B %Y')}")
-            content = st.text_area("Write your content in Markdown", height=420, 
-                value="""### Welcome to this edition of SuRe
-
-Key insights this week:
-
-- Insight 1...
-- Insight 2...
-
-**Quote of the week:**
-> Something meaningful
-
-[Read more](https://example.com)""")
-            
-            if st.button("Publish This Issue", type="primary"):
-                # Save to database
-                result = database.add_issue(title, content)
-                if result["success"]:
-                    # Reload issues from database
-                    st.session_state.issues = database.get_all_issues()
-                    st.balloons()
-                    st.success("Issue successfully published!")
-                else:
-                    st.error(f"Error publishing: {result['error']}")
-        
-        with tab2:
-            st.subheader(f"Subscribers ({len(st.session_state.subscribers)})")
-            if st.session_state.subscribers:
-                df = pd.DataFrame(st.session_state.subscribers)
-                st.dataframe(df, width='stretch')
-                csv = df.to_csv(index=False).encode()
-                st.download_button("Download Subscribers CSV", csv, "sure_subscribers.csv", "text/csv")
-            else:
-                st.info("No subscribers yet.")
-    else:
-        st.warning("🔒 Admin access required. Use the 🔑 Admin Access section in the sidebar to login.")
