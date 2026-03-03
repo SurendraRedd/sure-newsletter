@@ -41,7 +41,7 @@ jobs:
           driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
           try:
-              driver.get("https://remove-pdf-password.streamlit.app/")
+              driver.get("https://sure-newsletter.streamlit.app/")
               time.sleep(10)  # Wait for page to load
 
               # If sleep page is detected, click the wake-up button
