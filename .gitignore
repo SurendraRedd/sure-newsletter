@@ -1,4 +1,14 @@
-# Byte-compiled / optimized / DLL files
+*.env
+.env
+sure_newsletter.db
+.venv/
+__pycache__/
+.streamlit/secrets.toml
+/.venv
+*.pyc
+venv/
+/.pytest_cache
+/.DS_Store# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
 *$py.class
