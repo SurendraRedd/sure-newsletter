@@ -1,0 +1,13 @@
+# .github/workflows/ci.yml
+jobs:
+  check-lock:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: verify lockfile
+        run: |
+          uv sync --dry-run | tee /tmp/uv.out
+          if grep -q "would install" /tmp/uv.out; then
+            echo "requirements.txt and uv.lock are out of sync"
+            exit 1
+          fi
