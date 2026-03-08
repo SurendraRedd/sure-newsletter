@@ -173,7 +173,7 @@ if page == "🏠 Home":
     st.markdown('<p class="subtitle">Your weekly source for reliable, well-researched insights delivered straight to your inbox.<br>Join thousands of readers who trust SuRe for quality information.</p>', unsafe_allow_html=True)
     
     # Reliable hero image (high-quality professional photo from Picsum - always works)
-    st.image("https://picsum.photos/id/1015/1200/460", width='stretch', caption="Welcome to SuRe Newsletter")
+    st.image("https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=460&q=80", width='stretch', caption="Welcome to SuRe Newsletter")
 
     # Dashboard Section
     st.markdown('<div class="stats-section">', unsafe_allow_html=True)

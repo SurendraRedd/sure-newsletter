@@ -69,7 +69,7 @@ SuRe Team
                     <!-- Header -->
                     <div style="text-align: center; margin-bottom: 30px; border-bottom: 2px solid #1E3A8A; padding-bottom: 20px;">
                         <h1 style="color: #1E3A8A; margin: 0; font-size: 32px;">📰 SuRe</h1>
-                        <p style="color: #64748B; margin: 5px 0 0 0;">Thoughtful Insights • Carefully Curated</p>
+                        <p style="color: #64748B; margin: 5px 0 0 0;">Thoughtful & Curated Tech</p>
                     </div>
                     
                     <!-- Welcome message -->
