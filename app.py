@@ -163,7 +163,7 @@ if not st.session_state.issues:
 # ====================== SIDEBAR ======================
 st.sidebar.title("📧 SuRe")
 
-nav_options = ["🏠 Home", "📬 Latest Issue", "📚 Archive", "✉️ Subscribe"]
+nav_options = ["🏠 Home", "📬 Latest Article", "📚 Archive", "✉️ Subscribe"]
 page = st.sidebar.radio("Navigation", nav_options)
 
 # ====================== PAGES ======================
@@ -241,7 +241,7 @@ if page == "🏠 Home":
         </div>
         """, unsafe_allow_html=True)
 
-elif page == "📬 Latest Issue":
+elif page == "📬 Latest Article":
     latest = database.get_latest_issue()
     if latest:
         st.title(latest['title'])
@@ -258,7 +258,7 @@ elif page == "📬 Latest Issue":
         st.info("No issue published yet. Go to Admin panel to create your first issue.")
 
 elif page == "📚 Archive":
-    st.title("Issue Archive")
+    st.title("Articles Archive")
     all_issues = database.get_all_issues()
     if all_issues:
         for issue in all_issues:

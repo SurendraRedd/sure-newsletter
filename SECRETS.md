@@ -107,7 +107,7 @@ SMTP_PORT = 587
 - [ ] Tested local `.env` file works with `streamlit run app.py`
 - [ ] Welcome email sends successfully to test subscriber
 - [ ] Can create new issues in admin panel
-- [ ] Latest issue displays correctly on main page
+- [ ] Latest article displays correctly on main page
 
 ---
 

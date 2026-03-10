@@ -91,7 +91,7 @@ SuRe Team
                     
                     <!-- CTA -->
                     <div style="text-align: center; margin-bottom: 30px;">
-                        <p style="font-size: 16px; color: #475569;">Our latest issue is ready for you to explore!</p>
+                        <p style="font-size: 16px; color: #475569;">Our latest article is ready for you to explore!</p>
                     </div>
                     
                     <!-- Footer -->

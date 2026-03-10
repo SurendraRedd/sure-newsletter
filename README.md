@@ -92,7 +92,7 @@ The app will start at `http://localhost:8501`
 
 ## 📖 Pages
 - **Home**: Welcome dashboard with metrics
-- **Latest Issue**: Display most recent newsletter
+- **Latest Article**: Display most recent newsletter
 - **Archive**: Browse past issues
 - **Subscribe**: Email subscription form
 - **Admin**: Create/edit issues, manage subscribers (password: `sure2026`)

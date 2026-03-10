@@ -816,7 +816,7 @@ aws logs tail /aws/lambda/my-function --follow
         
         print(f"\n✅ Seeded {len(issues)} DevOps issues!")
         print("\n📝 Next steps:")
-        print("   1. Go to your app and check Latest Issue page")
+        print("   1. Go to your app and check Latest Article page")
         print("   2. Browse Archive to see all issues")
         print("   3. Issues are now live in your Supabase database")
         

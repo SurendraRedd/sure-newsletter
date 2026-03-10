@@ -205,5 +205,5 @@ def get_latest_issue() -> Optional[Dict]:
         return None
     
     except Exception as e:
-        print(f"Error fetching latest issue: {e}")
+        print(f"Error fetching latest article: {e}")
         return None
